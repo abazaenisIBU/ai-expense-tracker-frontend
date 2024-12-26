@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+.home-page {
+  height: 100vh;
+  width: 100vw;
+  background-color: #e09a4a;
+  color: #252523; /* Tuatara for text color */
+  font-family: 'Roboto', sans-serif; /* Set the font to Roboto */
+}
+
+.container{
+    background-color: #f5f5f5; /* Fancier white color for background */
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0px 400px 0px 400px;
+}
+  
+  .window {
+    background: linear-gradient(to bottom right, rgba(37, 37, 35, 0.1), rgba(37, 37, 35, 0.01)); /* Using Tuatara with transparency */
+    border-radius: 20px;
+    padding: 10px;
+    width: 80%;
+    max-width: 600px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(37, 37, 35, 0.15);
+  }
+  
+  .header {
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .logo {
+    width: 170px;
+    height: auto;
+    display: block;
+    margin: 0 auto 0;
+  }
+
+  .content {
+    height: 280px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-top: 1px solid #ccc;
+  }
+  
+  h1 {
+    font-size: 2em;
+    margin: 10px 0; /* Anzac for heading */
+  }
+  
+  p {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+    color: #7b946c; /* Highland for paragraph text */
+  }
+  
+  .buttons {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 30px;
+  }
+  
+  button {
+    padding: 10px 20px;
+    font-size: 1em;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #e09a4a; /* Anzac for button background */
+    color: #f5f5f5; /* Fancier white for button text */
+    transition: background-color 0.3s;
+  }
+  
+  button:hover {
+    background-color: #d38d3d; /* Slightly darker Anzac for hover effect */
+  }
