@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useUser } from "../../context/UserContext";
 import Header from "../../components/Shared/Header/Header"; 
 
-const HomePage: React.FC = () => {
+const ProfilePage: React.FC = () => {
   const { user } = useUser();
 
   useEffect(() => {
@@ -17,7 +17,7 @@ const HomePage: React.FC = () => {
     <div>
       <Header />
       <div style={{ padding: "20px" }}>
-        <h1>Welcome to your home page!"</h1>
+        <h1>Welcome to your profile page!"</h1>
         {user ? (
           <div>
             <p><strong>First Name:</strong> {user.firstName}</p>
@@ -37,4 +37,4 @@ const HomePage: React.FC = () => {
   );
 };
 
-export default HomePage;
+export default ProfilePage;

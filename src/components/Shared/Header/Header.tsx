@@ -1,12 +1,13 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { useUser } from "../../../context/UserContext";
 import "./Header.css";
-import defaultUserProfilePicture  from "../../../assets/images/default-user.png";
+import defaultUserProfilePicture from "../../../assets/images/default-user.png";
 import logo from "../../../assets/images/logo.png";
 
 const Header: React.FC = () => {
   const navigate = useNavigate();
+  const location = useLocation(); // Get the current route
   const { user } = useUser();
 
   const defaultProfilePicture = defaultUserProfilePicture;
@@ -17,10 +18,24 @@ const Header: React.FC = () => {
         <img src={logo} alt="Expense Tracker Logo" className="header-logo-image" />
       </div>
       <nav className="header-nav">
-        <a onClick={() => navigate("/home")} className="header-link">Home</a>
-        <a onClick={() => navigate("/expenses")} className="header-link">Expenses</a>
-        <a onClick={() => navigate("/statistics")} className="header-link">Statistics</a>
-        <a onClick={() => navigate("/profile")} className="header-link">Profile</a>
+        <a
+          onClick={() => navigate("/home")}
+          className={`header-link ${location.pathname === "/home" ? "active-link" : ""}`}
+        >
+          Home
+        </a>
+        <a
+          onClick={() => navigate("/statistics")}
+          className={`header-link ${location.pathname === "/statistics" ? "active-link" : ""}`}
+        >
+          Statistics
+        </a>
+        <a
+          onClick={() => navigate("/profile")}
+          className={`header-link ${location.pathname === "/profile" ? "active-link" : ""}`}
+        >
+          Profile
+        </a>
       </nav>
       <div className="header-profile">
         <img

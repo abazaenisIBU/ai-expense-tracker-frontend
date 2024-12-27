@@ -20,12 +20,6 @@
     height: 100px;
     width: 100px;
     margin-right: 10px;
-    transition: transform 0.3s, border 0.3s;
-}
-
-.header-app-name {
-    font-size: 20px;
-    font-weight: bold;
 }
 
 .header-nav {
@@ -54,7 +48,7 @@
     left: 0;
     background-color: #252523; /* Color of the underline */
     transform: scaleX(0); /* Initially hidden */
-    transform-origin: bottom right; /* Starts retracting from the right */
+    transform-origin: bottom right; /* Shrinks back from right */
     transition: transform 0.25s ease-out; /* Smooth animation */
 }
 
@@ -64,7 +58,30 @@
 
 .header-link:hover::after {
     transform: scaleX(1); /* Expands the underline fully on hover */
-    transform-origin: bottom left; /* Expands from the left when hovering */
+    transform-origin: bottom left; /* Expands from left on hover */
+}
+
+.active-link {
+    font-weight: bold;
+    color: #252523;
+    animation: pulse 2s infinite;
+}
+
+.active-link::after {
+    transform: scaleX(0); /* Ensure underline does not show for active link */
+}
+
+/* Pulsing Animation */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
 }
 
 .header-profile {
@@ -79,6 +96,6 @@
     transition: transform 0.3s, border 0.3s;
 }
 
-.header-profile-picture:hover, .header-logo-image:hover {
+.header-profile-picture:hover {
     transform: scale(1.1);
 }
