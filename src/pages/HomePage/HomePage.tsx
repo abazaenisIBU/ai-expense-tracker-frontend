@@ -1,58 +1,40 @@
-import React, { useState } from 'react';
-import './HomePage.css';
-import logo from "../../logo.png";
-import Home from '../../components/HomePage/Home/Home';
-import CreateProfile from '../../components/HomePage/CreateProfile/CreateProfile';
-import AccessAccount from '../../components/HomePage/AccessAccount/AccessAccount';
+import React, { useEffect } from "react";
+import { useUser } from "../../context/UserContext";
+import Header from "../../components/Shared/Header/Header"; 
 
-interface HomePageProps {}
+const ProfilePage: React.FC = () => {
+  const { user } = useUser();
 
-const HomePage: React.FC<HomePageProps> = () => {
-  const [currentView, setCurrentView] = useState<'home' | 'createProfile' | 'accessAccount'>('home');
-
-  const handleCreateProfile = () => {
-    setCurrentView('createProfile');
-  };
-
-  const handleAccessAccount = () => {
-    setCurrentView('accessAccount');
-  };
-
-  const handleHome = () => {
-    setCurrentView('home');
-  };
+  useEffect(() => {
+    if (user) {
+      console.log("User Details:", user);
+    } else {
+      console.log("No user is logged in.");
+    }
+  }, [user]);
 
   return (
-    <div className="home-page">
-      <div className="container">
-        <div className="window">
-          <header className="header">
-            <img src={logo} alt="Expense Tracker Logo" className="logo" />
-            <h1>
-              {currentView === 'home' && 'Welcome to Expense Tracker'} 
-              {currentView === 'createProfile' && 'Create Your Profile'} 
-              {currentView === 'accessAccount' && 'Access Your Account'} 
-            </h1> 
-          </header>
-
-          <div className="content">
-            {currentView === 'home' && (
-              <Home
-                onHandleCreateProfile={handleCreateProfile}
-                onHandleAccessAccount={handleAccessAccount}
-              />
+    <div>
+      <Header />
+      <div style={{ padding: "20px" }}>
+        <h1>Welcome to your profile!</h1>
+        {user ? (
+          <div>
+            <p><strong>First Name:</strong> {user.firstName}</p>
+            <p><strong>Last Name:</strong> {user.lastName}</p>
+            <p><strong>Email:</strong> {user.email}</p>
+            {user.profilePicture && (
+              <p><strong>Profile Picture:</strong> <img src={user.profilePicture} alt="Profile" /></p>
             )}
-            {currentView === 'createProfile' && (
-              <CreateProfile handleAccessAccount={handleAccessAccount} />
-            )}
-            {currentView === 'accessAccount' && (
-              <AccessAccount handleCreateProfile={handleCreateProfile} />
-            )}
+            <p><strong>Account Created:</strong> {user.createdAt}</p>
+            <p><strong>Last Updated:</strong> {user.updatedAt}</p>
           </div>
-        </div>
+        ) : (
+          <p>No user is logged in.</p>
+        )}
       </div>
     </div>
   );
 };
 
-export default HomePage;
+export default ProfilePage;

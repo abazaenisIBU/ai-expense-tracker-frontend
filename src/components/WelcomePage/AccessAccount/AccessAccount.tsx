@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { getUserByEmail } from "../../../api/userApi";
 import { useUser } from "../../../context/UserContext";
-import LoadingSpinner from "../../Shared/LoadingSpinner";
+import LoadingSpinner from "../../Shared/LoadingSpinner/LoadingSpinner";
 import "./AccessAccount.css";
 
 interface AccessAccountProps {
@@ -28,7 +28,7 @@ const AccessAccount: React.FC<AccessAccountProps> = ({ handleCreateProfile }) =>
       const user = await getUserByEmail(email);
       setUser(user);
       toast.success(`Welcome back, ${user.firstName}!`);
-      navigate("/profile");
+      navigate("/home");
     } catch (error: any) {
       const errorMessage =
         error.response?.data?.details?.[0]?.message ||

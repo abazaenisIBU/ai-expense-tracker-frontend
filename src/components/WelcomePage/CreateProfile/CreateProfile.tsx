@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { createUser } from "../../../api/userApi";
 import { toast } from "react-toastify";
-import LoadingSpinner from "../../Shared/LoadingSpinner";
+import LoadingSpinner from "../../Shared/LoadingSpinner/LoadingSpinner";
 import { useUser } from "../../../context/UserContext";
 import "./CreateProfile.css";
 
@@ -33,7 +33,7 @@ const CreateProfile: React.FC<CreateProfileProps> = ({ handleAccessAccount }) =>
       const user = await createUser(formData);
       setUser(user);
       toast.success("Profile created successfully!");
-      navigate("/profile");
+      navigate("/home");
     } catch (error: any) {
       const errorMessage =
         error.response?.data?.details?.[0]?.message ||

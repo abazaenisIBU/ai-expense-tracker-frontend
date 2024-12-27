@@ -1,13 +1,13 @@
 import React from 'react';
 
-import "./Home.css";
+import "./Welcome.css";
 
-interface HomeProps {
+interface WelcomeProps {
   onHandleCreateProfile: () => void;
   onHandleAccessAccount: () => void;
 }
 
-function Home({ onHandleCreateProfile, onHandleAccessAccount }: HomeProps) {
+function Welcome({ onHandleCreateProfile, onHandleAccessAccount }: WelcomeProps) {
   return (
     <>
       <section className="features">
@@ -26,4 +26,4 @@ function Home({ onHandleCreateProfile, onHandleAccessAccount }: HomeProps) {
   );
 }
 
-export default Home;
+export default Welcome;

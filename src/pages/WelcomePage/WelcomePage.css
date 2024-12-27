@@ -1,15 +1,13 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
-
-.home-page {
+.welcome-page {
   height: 100vh;
   width: 100vw;
   background-color: #e09a4a;
-  color: #252523; /* Tuatara for text color */
-  font-family: 'Roboto', sans-serif; /* Set the font to Roboto */
+  color: #252523;
+  font-family: 'Roboto', sans-serif;
 }
 
 .container{
-    background-color: #f5f5f5; /* Fancier white color for background */
+    background-color: #f5f5f5;
     height: 100%;
     width: 100%;
     display: flex;
