@@ -10,7 +10,9 @@ interface CreateProfileProps {
   handleAccessAccount: () => void;
 }
 
-const CreateProfile: React.FC<CreateProfileProps> = ({ handleAccessAccount }) => {
+const CreateProfile: React.FC<CreateProfileProps> = ({
+  handleAccessAccount,
+}) => {
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -81,7 +83,16 @@ const CreateProfile: React.FC<CreateProfileProps> = ({ handleAccessAccount }) =>
           />
         </div>
         <button type="submit" className="submit-button" disabled={loading}>
-          {loading ? <LoadingSpinner height="20px" width="20px" size={20} color="#007BFF" /> : "Submit"}
+          {loading ? (
+            <LoadingSpinner
+              height="20px"
+              width="20px"
+              size={20}
+              color="#007BFF"
+            />
+          ) : (
+            "Submit"
+          )}
         </button>
         <p onClick={handleAccessAccount}>Already have a profile?</p>
       </form>

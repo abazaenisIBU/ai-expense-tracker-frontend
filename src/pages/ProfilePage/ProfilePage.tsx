@@ -5,18 +5,17 @@ import "./ProfilePage.css";
 
 const ProfilePage: React.FC = () => {
   return (
-  <>
-    <Header />
-    <div className="profile-page-container">
-      <div className="profile-page-content">
-        <div className="profile-info">
+    <>
+      <Header />
+      <div className="profile-page-container">
+        <div className="profile-page-content">
+          <div className="profile-info">
             <h1 className="profile-title">Profile Information</h1>
             <UpdateUserForm />
           </div>
+        </div>
       </div>
-    </div>
-  </>
-    
+    </>
   );
 };
 

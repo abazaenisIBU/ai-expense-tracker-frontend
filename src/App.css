@@ -1,9 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap");
 
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   background: linear-gradient(to bottom right, #4e54c8, #8f94fb);
   color: #ffffff;
   display: flex;
@@ -75,8 +75,6 @@ footer {
   margin-top: 20px;
   font-size: 0.9rem;
 }
-
-
 
 .App {
   text-align: center;

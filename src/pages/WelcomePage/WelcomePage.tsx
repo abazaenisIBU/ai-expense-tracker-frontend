@@ -1,25 +1,27 @@
-import React, { useState } from 'react';
-import './WelcomePage.css';
+import React, { useState } from "react";
+import "./WelcomePage.css";
 import logo from "../../assets/images/logo.png";
-import Welcome from '../../components/WelcomePage/Welcome/Welcome';
-import CreateProfile from '../../components/WelcomePage/CreateProfile/CreateProfile';
-import AccessAccount from '../../components/WelcomePage/AccessAccount/AccessAccount';
+import Welcome from "../../components/WelcomePage/Welcome/Welcome";
+import CreateProfile from "../../components/WelcomePage/CreateProfile/CreateProfile";
+import AccessAccount from "../../components/WelcomePage/AccessAccount/AccessAccount";
 
 interface WelcomePageProps {}
 
 const WelcomePage: React.FC<WelcomePageProps> = () => {
-  const [currentView, setCurrentView] = useState<'welcome' | 'createProfile' | 'accessAccount'>('welcome');
+  const [currentView, setCurrentView] = useState<
+    "welcome" | "createProfile" | "accessAccount"
+  >("welcome");
 
   const handleCreateProfile = () => {
-    setCurrentView('createProfile');
+    setCurrentView("createProfile");
   };
 
   const handleAccessAccount = () => {
-    setCurrentView('accessAccount');
+    setCurrentView("accessAccount");
   };
 
   const handleWelcome = () => {
-    setCurrentView('welcome');
+    setCurrentView("welcome");
   };
 
   return (
@@ -29,23 +31,23 @@ const WelcomePage: React.FC<WelcomePageProps> = () => {
           <header className="header">
             <img src={logo} alt="Expense Tracker Logo" className="logo" />
             <h1>
-              {currentView === 'welcome' && 'Welcome to Expense Tracker'} 
-              {currentView === 'createProfile' && 'Create Your Profile'} 
-              {currentView === 'accessAccount' && 'Access Your Account'} 
-            </h1> 
+              {currentView === "welcome" && "Welcome to Expense Tracker"}
+              {currentView === "createProfile" && "Create Your Profile"}
+              {currentView === "accessAccount" && "Access Your Account"}
+            </h1>
           </header>
 
           <div className="content">
-            {currentView === 'welcome' && (
+            {currentView === "welcome" && (
               <Welcome
                 onHandleCreateProfile={handleCreateProfile}
                 onHandleAccessAccount={handleAccessAccount}
               />
             )}
-            {currentView === 'createProfile' && (
+            {currentView === "createProfile" && (
               <CreateProfile handleAccessAccount={handleAccessAccount} />
             )}
-            {currentView === 'accessAccount' && (
+            {currentView === "accessAccount" && (
               <AccessAccount handleCreateProfile={handleCreateProfile} />
             )}
           </div>

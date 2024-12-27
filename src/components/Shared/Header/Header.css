@@ -1,105 +1,105 @@
 .header-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #e09a4a;
-    padding: 10px 20px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    color: #fff;
-    height: 70px;
-    font-family: 'Roboto', sans-serif;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #e09a4a;
+  padding: 10px 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  color: #fff;
+  height: 70px;
+  font-family: "Roboto", sans-serif;
 }
 
 .header-logo {
-    display: flex;
-    align-items: center;
-    cursor: pointer;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
 }
 
 .header-logo-image {
-    height: 100px;
-    width: 100px;
-    margin-right: 10px;
-    border-radius: 50%;
-    object-fit: cover;
+  height: 100px;
+  width: 100px;
+  margin-right: 10px;
+  border-radius: 50%;
+  object-fit: cover;
 }
 
 .header-nav {
-    display: flex;
-    justify-content: flex-start;
-    gap: 70px;
-    width: 100%;
-    margin-left: 30px;
+  display: flex;
+  justify-content: flex-start;
+  gap: 70px;
+  width: 100%;
+  margin-left: 30px;
 }
 
 .header-link {
-    font-size: 18px;
-    text-decoration: none;
-    color: #fff;
-    cursor: pointer;
-    position: relative; /* Required for pseudo-element positioning */
-    transition: color 0.3s;
+  font-size: 18px;
+  text-decoration: none;
+  color: #fff;
+  cursor: pointer;
+  position: relative; /* Required for pseudo-element positioning */
+  transition: color 0.3s;
 }
 
 .header-link::after {
-    content: ""; /* Creates the pseudo-element for the underline */
-    position: absolute;
-    width: 100%; /* Full width of the link */
-    height: 1px; /* Thickness of the underline */
-    bottom: 0; /* Position the underline at the bottom of the text */
-    left: 0;
-    background-color: #252523; /* Color of the underline */
-    transform: scaleX(0); /* Initially hidden */
-    transform-origin: bottom right; /* Shrinks back from right */
-    transition: transform 0.25s ease-out; /* Smooth animation */
+  content: ""; /* Creates the pseudo-element for the underline */
+  position: absolute;
+  width: 100%; /* Full width of the link */
+  height: 1px; /* Thickness of the underline */
+  bottom: 0; /* Position the underline at the bottom of the text */
+  left: 0;
+  background-color: #252523; /* Color of the underline */
+  transform: scaleX(0); /* Initially hidden */
+  transform-origin: bottom right; /* Shrinks back from right */
+  transition: transform 0.25s ease-out; /* Smooth animation */
 }
 
 .header-link:hover {
-    color: #252523;
+  color: #252523;
 }
 
 .header-link:hover::after {
-    transform: scaleX(1); /* Expands the underline fully on hover */
-    transform-origin: bottom left; /* Expands from left on hover */
+  transform: scaleX(1); /* Expands the underline fully on hover */
+  transform-origin: bottom left; /* Expands from left on hover */
 }
 
 .active-link {
-    font-weight: bold;
-    color: #252523;
-    animation: pulse 2s infinite;
+  font-weight: bold;
+  color: #252523;
+  animation: pulse 2s infinite;
 }
 
 .active-link::after {
-    transform: scaleX(0); /* Ensure underline does not show for active link */
+  transform: scaleX(0); /* Ensure underline does not show for active link */
 }
 
 /* Pulsing Animation */
 @keyframes pulse {
-    0% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(1.1);
-    }
-    100% {
-        transform: scale(1);
-    }
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
 .header-profile {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .header-profile-picture {
-    height: 70px;
-    width: 70px;
-    cursor: pointer;
-    transition: transform 0.3s, border 0.3s;
-    border-radius: 50%;
-    object-fit: cover;
+  height: 70px;
+  width: 70px;
+  cursor: pointer;
+  transition: transform 0.3s, border 0.3s;
+  border-radius: 50%;
+  object-fit: cover;
 }
 
 .header-profile-picture:hover {
-    transform: scale(1.1);
+  transform: scale(1.1);
 }

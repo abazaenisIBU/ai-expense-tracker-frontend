@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useUser } from "../../../context/UserContext";
-import { updateUser, updateProfilePicture } from "../../../api/userApi"; // Import API functions
+import { updateUser, updateProfilePicture } from "../../../api/userApi";
 import defaultUserProfilePicture from "../../../assets/images/default-user.png";
 import { toast } from "react-toastify";
 import LoadingSpinner from "../../Shared/LoadingSpinner/LoadingSpinner";
@@ -19,14 +19,29 @@ const UpdateUserForm: React.FC = () => {
   const [loadingUserUpdate, setLoadingUserUpdate] = useState(false);
   const [loadingPictureUpdate, setLoadingPictureUpdate] = useState(false);
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
+  const [userTimer, setUserTimer] = useState(0);
+  const [pictureTimer, setPictureTimer] = useState(0);
 
-  // Handle input changes for the user form
+  const startTimer = (
+    setTimer: React.Dispatch<React.SetStateAction<number>>
+  ) => {
+    setTimer(5);
+    const timerInterval = setInterval(() => {
+      setTimer((prev) => {
+        if (prev <= 1) {
+          clearInterval(timerInterval);
+          return 0;
+        }
+        return prev - 1;
+      });
+    }, 1000);
+  };
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { id, value } = e.target;
     setFormData((prev) => ({ ...prev, [id]: value }));
   };
 
-  // Update user details
   const handleUpdateUser = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoadingUserUpdate(true);
@@ -45,32 +60,19 @@ const UpdateUserForm: React.FC = () => {
       setUser(updatedUser);
       toast.success("User updated successfully!");
     } catch (error: any) {
-      if (error.response && error.response.data) {
-        const { error: apiError, details } = error.response.data;
-
-        toast.error(apiError || "Failed to update user.");
-        if (details && Array.isArray(details)) {
-          details.forEach((detail: { field: string | null; message: string }) => {
-            toast.error(detail.message);
-          });
-        }
-      } else {
-        console.error("Unexpected error:", error);
-        toast.error("An unexpected error occurred. Please try again.");
-      }
+      toast.error("Failed to update user. Please try again.");
     } finally {
       setLoadingUserUpdate(false);
+      startTimer(setUserTimer);
     }
   };
 
-  // Handle file selection for profile picture
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files[0]) {
       setSelectedFile(e.target.files[0]);
     }
   };
 
-  // Update profile picture
   const handleUploadProfilePicture = async () => {
     if (!selectedFile) {
       toast.error("Please select a file to upload.");
@@ -105,10 +107,10 @@ const UpdateUserForm: React.FC = () => {
 
       toast.success("Profile picture updated successfully!");
     } catch (error) {
-      console.error("Error uploading profile picture:", error);
       toast.error("Failed to update profile picture. Please try again.");
     } finally {
       setLoadingPictureUpdate(false);
+      startTimer(setPictureTimer);
     }
   };
 
@@ -147,13 +149,29 @@ const UpdateUserForm: React.FC = () => {
             />
           </div>
           <div className="form-actions">
-            <button type="submit" className="update-button" disabled={loadingUserUpdate}>
+            <button
+              type="submit"
+              className="update-button"
+              disabled={loadingUserUpdate || userTimer > 0}
+            >
               {loadingUserUpdate ? (
-                <LoadingSpinner size={20} color="#fff" width="auto" height="auto" />
+                <LoadingSpinner
+                  size={20}
+                  color="#fff"
+                  width="auto"
+                  height="auto"
+                />
               ) : (
                 "Update User"
               )}
             </button>
+            <div className="rate-limit-message-container">
+              {userTimer > 0 && (
+                <p className="timer-message">
+                  Please wait {userTimer} seconds to update again.
+                </p>
+              )}
+            </div>
           </div>
         </div>
         <div className="form-right">
@@ -173,14 +191,26 @@ const UpdateUserForm: React.FC = () => {
               type="button"
               className="update-button"
               onClick={handleUploadProfilePicture}
-              disabled={loadingPictureUpdate}
+              disabled={loadingPictureUpdate || pictureTimer > 0}
             >
               {loadingPictureUpdate ? (
-                <LoadingSpinner size={20} color="#fff" width="auto" height="auto" />
+                <LoadingSpinner
+                  size={20}
+                  color="#fff"
+                  width="auto"
+                  height="auto"
+                />
               ) : (
                 "Update Profile Picture"
               )}
             </button>
+            <div className="rate-limit-message-container">
+              {pictureTimer > 0 && (
+                <p className="timer-message">
+                  Please wait {pictureTimer} seconds to update again.
+                </p>
+              )}
+            </div>
           </div>
         </div>
       </form>

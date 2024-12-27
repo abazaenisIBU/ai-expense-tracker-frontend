@@ -1,6 +1,8 @@
 import React, { useEffect } from "react";
 import { useUser } from "../../context/UserContext";
-import Header from "../../components/Shared/Header/Header"; 
+import Header from "../../components/Shared/Header/Header";
+import Statistics from "../../components/StatisticsPage/Statistics";
+import "./StatisticsPage.css";
 
 const ProfilePage: React.FC = () => {
   const { user } = useUser();
@@ -14,26 +16,16 @@ const ProfilePage: React.FC = () => {
   }, [user]);
 
   return (
-    <div>
+    <>
       <Header />
-      <div style={{ padding: "20px" }}>
-        <h1>Welcome to your statistics page!"</h1>
-        {user ? (
-          <div>
-            <p><strong>First Name:</strong> {user.firstName}</p>
-            <p><strong>Last Name:</strong> {user.lastName}</p>
-            <p><strong>Email:</strong> {user.email}</p>
-            {user.profilePicture && (
-              <p><strong>Profile Picture:</strong> <img src={user.profilePicture} alt="Profile" /></p>
-            )}
-            <p><strong>Account Created:</strong> {user.createdAt}</p>
-            <p><strong>Last Updated:</strong> {user.updatedAt}</p>
+      <div className="statistics-page-container">
+        <div className="statistics-page-content">
+          <div className="statistics-info">
+            <Statistics />
           </div>
-        ) : (
-          <p>No user is logged in.</p>
-        )}
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

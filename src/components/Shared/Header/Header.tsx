@@ -15,24 +15,34 @@ const Header: React.FC = () => {
   return (
     <header className="header-container">
       <div className="header-logo" onClick={() => navigate("/home")}>
-        <img src={logo} alt="Expense Tracker Logo" className="header-logo-image" />
+        <img
+          src={logo}
+          alt="Expense Tracker Logo"
+          className="header-logo-image"
+        />
       </div>
       <nav className="header-nav">
         <a
           onClick={() => navigate("/home")}
-          className={`header-link ${location.pathname === "/home" ? "active-link" : ""}`}
+          className={`header-link ${
+            location.pathname === "/home" ? "active-link" : ""
+          }`}
         >
           Home
         </a>
         <a
           onClick={() => navigate("/statistics")}
-          className={`header-link ${location.pathname === "/statistics" ? "active-link" : ""}`}
+          className={`header-link ${
+            location.pathname === "/statistics" ? "active-link" : ""
+          }`}
         >
           Statistics
         </a>
         <a
           onClick={() => navigate("/profile")}
-          className={`header-link ${location.pathname === "/profile" ? "active-link" : ""}`}
+          className={`header-link ${
+            location.pathname === "/profile" ? "active-link" : ""
+          }`}
         >
           Profile
         </a>
