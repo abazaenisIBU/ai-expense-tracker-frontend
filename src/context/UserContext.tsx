@@ -14,7 +14,7 @@ interface User {
 // Define the context type
 interface UserContextType {
   user: User | null;
-  setUser: (user: User | null) => void;
+  setUser: React.Dispatch<React.SetStateAction<User | null>>;
 }
 
 // Create the context

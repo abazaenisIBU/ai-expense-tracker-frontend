@@ -51,6 +51,18 @@ export const updateUser = async (userId: number, userData: Partial<User>): Promi
     return response.data;
 };
 
+export const updateProfilePicture = async (userId: number, profilePictureUrl: string): Promise<void> => {
+    await axios.post(
+      `http://localhost:8080/api/users/${userId}/profile-picture`,
+      { profilePicture: profilePictureUrl },
+      {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      }
+    );
+  };
+
 /**
  * Delete a user by ID.
  * @param {number} userId - The ID of the user to delete.

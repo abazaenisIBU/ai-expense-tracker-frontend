@@ -1,39 +1,22 @@
-import React, { useEffect } from "react";
-import { useUser } from "../../context/UserContext";
-import Header from "../../components/Shared/Header/Header"; 
+import React from "react";
+import UpdateUserForm from "../../components/ProfilePage/UpdateUserForm/UpdateUserForm";
+import Header from "../../components/Shared/Header/Header";
+import "./ProfilePage.css";
 
 const ProfilePage: React.FC = () => {
-  const { user } = useUser();
-
-  useEffect(() => {
-    if (user) {
-      console.log("User Details:", user);
-    } else {
-      console.log("No user is logged in.");
-    }
-  }, [user]);
-
   return (
-    <div>
-      <Header />
-      <div style={{ padding: "20px" }}>
-        <h1>Welcome to your profile page!"</h1>
-        {user ? (
-          <div>
-            <p><strong>First Name:</strong> {user.firstName}</p>
-            <p><strong>Last Name:</strong> {user.lastName}</p>
-            <p><strong>Email:</strong> {user.email}</p>
-            {user.profilePicture && (
-              <p><strong>Profile Picture:</strong> <img src={user.profilePicture} alt="Profile" /></p>
-            )}
-            <p><strong>Account Created:</strong> {user.createdAt}</p>
-            <p><strong>Last Updated:</strong> {user.updatedAt}</p>
+  <>
+    <Header />
+    <div className="profile-page-container">
+      <div className="profile-page-content">
+        <div className="profile-info">
+            <h1 className="profile-title">Profile Information</h1>
+            <UpdateUserForm />
           </div>
-        ) : (
-          <p>No user is logged in.</p>
-        )}
       </div>
     </div>
+  </>
+    
   );
 };
 

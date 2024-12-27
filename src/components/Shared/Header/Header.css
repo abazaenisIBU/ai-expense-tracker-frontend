@@ -20,6 +20,8 @@
     height: 100px;
     width: 100px;
     margin-right: 10px;
+    border-radius: 50%;
+    object-fit: cover;
 }
 
 .header-nav {
@@ -94,6 +96,8 @@
     width: 70px;
     cursor: pointer;
     transition: transform 0.3s, border 0.3s;
+    border-radius: 50%;
+    object-fit: cover;
 }
 
 .header-profile-picture:hover {
