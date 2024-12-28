@@ -1,0 +1,63 @@
+.home-page-container {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 83%;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+
+.sort-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.expenses-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.expense-chart-divider {
+  width: 83%;
+  height: 1px;
+  background-color: #ddd;
+  border: none;
+  align-self: center;
+  margin-bottom: 20px;
+}
+
+.expenses-title-container {
+  margin: 0;
+  padding: 0;
+}
+
+.expenses-title {
+  margin: 0;
+  padding: 0;
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.expense-buttons-container {
+  width: 150px;
+  display: flex;
+  justify-content: start;
+  gap: 15px;
+}
+
+.sort-controls-container {
+  width: 150px;
+  display: flex;
+  justify-content: space-between;
+}

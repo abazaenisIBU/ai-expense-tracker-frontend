@@ -1,0 +1,96 @@
+/* Main card container */
+.expense-card-container {
+  background-color: #ffffff;
+  border: 1px solid #dddddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin: 5px auto;
+  width: 80%;
+  transition: transform 0.3s, box-shadow 0.3s;
+  overflow: hidden;
+  position: relative;
+}
+
+.expense-card-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+.expense-date-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.expense-date-container > div {
+  width: 120px;
+}
+
+.expense-date {
+  font-size: 18px;
+  font-weight: bold;
+  color: #666666;
+  flex: 0.5;
+}
+
+.expense-description {
+  font-size: 18px;
+  color: #333333;
+  flex: 2;
+  text-align: left;
+  padding-left: 15px;
+}
+
+.expense-description:hover,
+.expense-date:hover,
+.expense-amount:hover {
+  text-decoration: none;
+  cursor: default;
+}
+
+.expense-amount {
+  font-size: 20px;
+  font-weight: bold;
+  color: #4caf50;
+  text-align: right;
+  flex: 0.5;
+}
+
+/* Action buttons */
+.expense-card-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+  padding: 0 15px;
+}
+
+.expense-card-edit-button,
+.expense-card-delete-button {
+  padding: 8px 12px;
+  font-size: 14px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.expense-card-edit-button {
+  background-color: #d38d3d;
+  color: #ffffff;
+}
+
+.expense-card-edit-button:hover {
+  background-color: #e09a4a;
+}
+
+.expense-card-delete-button {
+  background-color: #ca362c;
+  color: #ffffff;
+}
+
+.expense-card-delete-button:hover {
+  background-color: #d32f2f;
+}
