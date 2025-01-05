@@ -1,6 +1,7 @@
 import axios from "axios";
 
-const STATISTICS_API_BASE_URL = "http://localhost:8080/api/statistics";
+const STATISTICS_API_BASE_URL =
+  "https://ai-expense-tracker-backend-c953.onrender.com/api/statistics";
 
 /**
  * Fetch user statistics by email.
