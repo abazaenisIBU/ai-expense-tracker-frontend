@@ -1,0 +1,18 @@
+.features h2 {
+  margin-bottom: 15px;
+}
+
+.features ul {
+  list-style: square;
+  padding: 0;
+}
+
+.features li {
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+}
+
+.features li span {
+  margin-left: 10px;
+}
