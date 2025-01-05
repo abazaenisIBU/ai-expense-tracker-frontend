@@ -1,5 +1,5 @@
 import React from "react";
-import { CircularProgress, Box } from "@mui/material";
+import { CircularProgress } from "@mui/material";
 
 interface LoadingSpinnerProps {
   height?: string | number;
@@ -11,19 +11,13 @@ interface LoadingSpinnerProps {
 const LoadingSpinner: React.FC<LoadingSpinnerProps> = ({
   height = "100vh",
   width = "100%",
-  size = 40,
+  size = 35,
   color = "primary",
 }) => {
   return (
-    <Box
-      display="flex"
-      justifyContent="center"
-      alignItems="center"
-      height={height}
-      width={width}
-    >
+    <div className="loading-spinner-container">
       <CircularProgress size={size} color={color as any} />
-    </Box>
+    </div>
   );
 };
 
