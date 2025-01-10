@@ -2,7 +2,8 @@
 import axios from "axios";
 import { User } from "../types/User";
 
-const USER_API_BASE_URL = "http://localhost:8080/api/users";
+const USER_API_BASE_URL =
+  "https://ai-expense-tracker-backend-c953.onrender.com/api/users";
 
 /**
  * Fetch all users.
