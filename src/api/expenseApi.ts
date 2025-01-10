@@ -6,10 +6,12 @@ const BASE_URL =
 export const getExpenses = async (
   email: string,
   sortBy: string,
-  direction: string
+  direction: string,
+  filterColumn?: string,
+  filterValue?: string
 ) => {
   const response = await axios.get(`${BASE_URL}/${encodeURIComponent(email)}`, {
-    params: { sortBy, direction },
+    params: { sortBy, direction, filterColumn, filterValue },
   });
   return response.data;
 };

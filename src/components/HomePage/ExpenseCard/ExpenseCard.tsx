@@ -6,6 +6,9 @@ interface ExpenseCardProps {
   date: string;
   amount: number;
   description: string;
+  category: string;
+  createdAt: string;
+  updatedAt: string;
   onEdit?: (id: number) => void;
   onDelete?: (id: number) => void;
   showEditActions: boolean;
@@ -16,25 +19,41 @@ const ExpenseCard: React.FC<ExpenseCardProps> = ({
   date,
   amount,
   description,
+  category,
+  createdAt,
+  updatedAt,
   onEdit,
   onDelete,
   showEditActions,
 }) => {
   return (
     <div className="expense-card-container">
-      <div className="expense-card-content">
-        <p className="expense-description">{description}</p>
-        <div className="expense-date-container">
-          <div>
-            <p className="expense-date">
-              {new Date(date).toLocaleDateString()}
-            </p>
-          </div>
-          <div>
-            <p className="expense-amount">${amount.toFixed(2)}</p>
-          </div>
-        </div>
+      {/* Column Labels */}
+      <div className="expense-card-labels">
+        <span className="column-label">Description</span>
+        <span className="column-label">Category</span>
+        <span className="column-label">Created</span>
+        <span className="column-label">Updated</span>
+        <span className="column-label">Date</span>
+        <span className="column-label">Amount</span>
       </div>
+
+      {/* Actual Data */}
+      <div className="expense-card-data">
+        <span className="expense-description">{description}</span>
+        <span className="expense-date2">{category}</span>
+        <span className="expense-date2">
+          {new Date(createdAt).toLocaleDateString()}
+        </span>
+        <span className="expense-date2">
+          {new Date(updatedAt).toLocaleDateString()}
+        </span>
+        <span className="expense-date">
+          {new Date(date).toLocaleDateString()}
+        </span>
+        <span className="expense-amount">${amount.toFixed(2)}</span>
+      </div>
+
       {showEditActions && (
         <div className="expense-card-actions">
           <button

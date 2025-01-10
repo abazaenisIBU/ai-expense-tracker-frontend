@@ -1,70 +1,71 @@
-/* Main card container */
 .expense-card-container {
   background-color: #ffffff;
   border: 1px solid #dddddd;
   border-radius: 8px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   padding: 20px;
-  margin: 5px auto;
+
+  /* Fill parent width, up to 1200px max */
   width: 80%;
+  margin: 10px auto;
+
   transition: transform 0.3s, box-shadow 0.3s;
   overflow: hidden;
   position: relative;
+  min-height: 50px;
 }
 
-.expense-card-content {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 15px;
-}
-
-.expense-date-container {
-  display: flex;
-  align-items: center;
+.expense-card-labels,
+.expense-card-data {
+  display: grid;
+  /* 6 columns, summing to 6fr total */
+  grid-template-columns: 1.2fr 1fr 1fr 1fr 1fr 0.8fr;
   gap: 10px;
+  margin-bottom: 8px;
+  padding: 0 10px;
 }
 
-.expense-date-container > div {
-  width: 120px;
+.column-label {
+  font-size: 12px;
+  color: #999;
+  text-transform: uppercase;
+  font-weight: 600;
 }
 
-.expense-date {
-  font-size: 18px;
-  font-weight: bold;
-  color: #666666;
-  flex: 0.5;
+/* Right-align the last column (Amount) */
+.expense-card-labels span:last-child,
+.expense-card-data span:last-child {
+  text-align: right;
 }
 
 .expense-description {
-  font-size: 18px;
+  font-size: 16px;
   color: #333333;
-  flex: 2;
-  text-align: left;
-  padding-left: 15px;
 }
 
-.expense-description:hover,
-.expense-date:hover,
-.expense-amount:hover {
-  text-decoration: none;
-  cursor: default;
+.expense-date2 {
+  font-size: 16px;
+  font-weight: 100;
+  color: #666666;
+}
+
+.expense-date {
+  font-size: 16px;
+  font-weight: bold;
+  color: #666666;
 }
 
 .expense-amount {
-  font-size: 20px;
+  font-size: 18px;
   font-weight: bold;
   color: #4caf50;
-  text-align: right;
-  flex: 0.5;
 }
 
-/* Action buttons */
 .expense-card-actions {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   margin-top: 15px;
-  padding: 0 15px;
+  padding: 0 10px;
 }
 
 .expense-card-edit-button,
@@ -75,6 +76,7 @@
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s;
+  margin-left: 10px;
 }
 
 .expense-card-edit-button {
