@@ -1,15 +1,16 @@
 import axios from "axios";
 
-const BASE_URL =
-  "https://ai-expense-tracker-backend-c953.onrender.com/api/expenses/user";
+const BASE_URL = "http://localhost:8080/api/expenses/user";
 
 export const getExpenses = async (
   email: string,
   sortBy: string,
-  direction: string
+  direction: string,
+  filterColumn?: string,
+  filterValue?: string
 ) => {
   const response = await axios.get(`${BASE_URL}/${encodeURIComponent(email)}`, {
-    params: { sortBy, direction },
+    params: { sortBy, direction, filterColumn, filterValue },
   });
   return response.data;
 };

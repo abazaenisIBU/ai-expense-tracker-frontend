@@ -1,7 +1,6 @@
 import axios from "axios";
 
-const CATEGORY_API_BASE_URL =
-  "https://ai-expense-tracker-backend-c953.onrender.com/api/categories/user";
+const CATEGORY_API_BASE_URL = "http://localhost:8080/api/categories/user";
 
 export const getUserCategories = async (email: string) => {
   const response = await axios.get(
