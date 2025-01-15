@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const CATEGORY_API_BASE_URL =
-  "https://ai-expense-tracker-backend-c953.onrender.com/api/categories/user";
+  "https://ai-expense-tracker-frontend.onrender.com/api/categories/user";
 
 export const getUserCategories = async (email: string) => {
   const response = await axios.get(
