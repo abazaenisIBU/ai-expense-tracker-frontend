@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const BASE_URL =
-  "https://ai-expense-tracker-backend-c953.onrender.com/api/expenses/user";
+  "https://ai-expense-tracker-frontend.onrender.com/api/expenses/user";
 
 export const getExpenses = async (
   email: string,
@@ -61,4 +61,11 @@ export const updateExpense = async (
 
 export const deleteExpense = async (email: string, expenseId: number) => {
   await axios.delete(`${BASE_URL}/${encodeURIComponent(email)}/${expenseId}`);
+};
+
+export const getExpensesGroupedByCategory = async (email: string) => {
+  const response = await axios.get(
+    `${BASE_URL}/${encodeURIComponent(email)}/by-category`
+  );
+  return response.data;
 };
