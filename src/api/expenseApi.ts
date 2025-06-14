@@ -1,7 +1,6 @@
 import axios from "axios";
 
-const BASE_URL =
-  "https://ai-expense-tracker-frontend.onrender.com/api/expenses/user";
+const BASE_URL = "http://localhost:8080/api/expenses/user";
 
 export const getExpenses = async (
   email: string,
