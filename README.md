@@ -60,6 +60,20 @@ Ensure you have the following installed:
 - **Profile Page**: Update your profile information on the Profile page.
 - **Manage Expenses**: Edit or delete existing expenses as needed.
 
+## Testing & Quality Assurance
+- **Code Style**: ESLint with React, Hooks, and accessibility plugins, combined with Prettier for formatting.
+- **Unit Testing**: Jest and React Testing Library for component and logic tests, with ~70% statement coverage.
+- **Manual Testing**: Cross-browser testing (Chrome, Firefox) for all user flows.
+- **CI/CD**: GitHub Actions runs linting and tests on pull requests and deploys to Render on main branch pushes if all checks pass.
+
+## Continuous Integration & Deployment
+- **GitHub Actions**:
+  - **Pull Requests**: Runs linting, static analysis, and tests for backend (Maven) and frontend (Jest).
+  - **Main Branch**: Runs full test suite and deploys backend (Render JAR) and frontend (static site) if tests pass.
+- **Render Deployment**:
+  - Backend: Spring Boot JAR with PostgreSQL connection.
+  - Frontend: Optimized static site from `npm run build`.
+
 ## License
 
 This project is licensed under the MIT License. See the [LICENSE](./LICENSE) file for details.
