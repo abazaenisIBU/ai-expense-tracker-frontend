@@ -2,15 +2,12 @@
 import axios from "axios";
 import { User } from "../types/User";
 
-const USER_API_BASE_URL =
-  "https://ai-expense-tracker-frontend.onrender.com/api/users";
-
 /**
  * Fetch all users.
  * @returns {Promise<User[]>} A list of users.
  */
 export const getAllUsers = async (): Promise<User[]> => {
-  const response = await axios.get(`${USER_API_BASE_URL}/`);
+  const response = await axios.get(`${process.env.USER_API_BASE_URL}/`);
   return response.data;
 };
 
@@ -21,7 +18,7 @@ export const getAllUsers = async (): Promise<User[]> => {
  */
 export const getUserByEmail = async (email: string): Promise<User> => {
   const response = await axios.get(
-    `${USER_API_BASE_URL}/${encodeURIComponent(email)}`
+    `${process.env.REACT_APP_USER_API_BASE_URL}/${encodeURIComponent(email)}`,
   );
   return response.data;
 };
@@ -31,11 +28,15 @@ export const getUserByEmail = async (email: string): Promise<User> => {
  * @returns {Promise<User>} The newly created user.
  */
 export const createUser = async (user: Partial<User>): Promise<User> => {
-  const response = await axios.post(`${USER_API_BASE_URL}`, user, {
-    headers: {
-      "Content-Type": "application/json",
+  const response = await axios.post(
+    `${process.env.REACT_APP_USER_API_BASE_URL}`,
+    user,
+    {
+      headers: {
+        "Content-Type": "application/json",
+      },
     },
-  });
+  );
   return response.data;
 };
 
@@ -47,28 +48,32 @@ export const createUser = async (user: Partial<User>): Promise<User> => {
  */
 export const updateUser = async (
   userId: number,
-  userData: Partial<User>
+  userData: Partial<User>,
 ): Promise<User> => {
-  const response = await axios.put(`${USER_API_BASE_URL}/${userId}`, userData, {
-    headers: {
-      "Content-Type": "application/json",
+  const response = await axios.put(
+    `${process.env.REACT_APP_USER_API_BASE_URL}/${userId}`,
+    userData,
+    {
+      headers: {
+        "Content-Type": "application/json",
+      },
     },
-  });
+  );
   return response.data;
 };
 
 export const updateProfilePicture = async (
   userId: number,
-  profilePictureUrl: string
+  profilePictureUrl: string,
 ): Promise<void> => {
   await axios.post(
-    `${USER_API_BASE_URL}/${userId}/profile-picture`,
+    `${process.env.REACT_APP_USER_API_BASE_URL}/${userId}/profile-picture`,
     { profilePicture: profilePictureUrl },
     {
       headers: {
         "Content-Type": "application/json",
       },
-    }
+    },
   );
 };
 
@@ -78,5 +83,5 @@ export const updateProfilePicture = async (
  * @returns {Promise<void>} Confirmation of deletion.
  */
 export const deleteUser = async (userId: number): Promise<void> => {
-  await axios.delete(`${USER_API_BASE_URL}/${userId}`);
+  await axios.delete(`${process.env.REACT_APP_USER_API_BASE_URL}/${userId}`);
 };
